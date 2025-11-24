@@ -12,9 +12,9 @@ for user in users:
             if "username" in data:
                 all_data.append({
                     "username": data.get("username"),
-                    # "fullname": data.get("name", "No name"),
-                    # "honor": data.get("honor", 0),
-                    # "rank_name": data.get("ranks", {}).get("overall", {}).get("name", "Unknown"),
+                     "fullname": data.get("name", "No name"),
+                     "honor": data.get("honor", 0),
+                    "rank_name": data.get("ranks", {}).get("overall", {}).get("name", "Unknown"),
                     "totalCompleted": data.get("codeChallenges", {}).get("totalCompleted")})
         else:
             print(f"⚠️ {user} topilmadi yoki API xato: {data}")
