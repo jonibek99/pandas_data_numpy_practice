@@ -8,7 +8,7 @@ results = f"groups/{group}.csv"
 all_data = []
 
 try:
-    users = pd.read_csv(results)['username'].tolist()   # CSVdan userlar ro‘yxati
+    users = pd.read_csv(results)['username'].tolist()   
 
     for user in users:
         response = rq.get(f'{url}{user}')
@@ -27,5 +27,6 @@ except Exception as xatolik:
 
 if all_data:
     df = pd.DataFrame(all_data)
+    df.sort_values(by="totalCompleted",ascending=False,inplace=True)
     df.to_csv(f'{group}_all.csv', index=False)
     print(df)
